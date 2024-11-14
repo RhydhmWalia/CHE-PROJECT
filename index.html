@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Energy for Sustainable Development</title>
+    <link rel="stylesheet" href="p1.css"> 
+</head>
+<body>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo">
+                <a href="#CHE">
+                    CHE<span>Project</span>
+                </a>
+            </div>
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn active">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#About" class="menu-btn active">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#hiw" class="menu-btn active">
+                        How It Works
+                    </a>
+                </li>
+                <li>
+                    <a href="#benefits" class="menu-btn active">
+                        Benefits
+                    </a>
+                </li>
+                <li>
+                    <a href="#calculator" class="menu-btn active">
+                        Calculator
+                    </a>
+                </li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- For Home Section -->
+    <section id="home" class="home section-container active">
+        <div class="max-width home-content">
+            <h1 class="text-1">Empowering a Sustainable Future with <span>Solar Energy</span></h1>
+            <p class="text-2">Solar energy is a clean, renewable source that powers homes and businesses while reducing greenhouse gas emissions.</p>
+            <a onclick="showSection('home')" ></a>
+        </div>
+    </section>
+
+    <section id="About" class="section-container">
+        <div class="max-width">
+            <h2 class="title">About Solar Energy</h2>
+            <p>Solar energy stands out as one of the most promising solutions for sustainable energy generation. As a clean, renewable, and abundant resource, 
+                it has the potential to provide reliable power without the harmful emissions associated with fossil fuels. Solar energy systems capture sunlight 
+                and convert it into electricity or thermal energy, making it possible to meet a wide range of energy needs, from household electricity to industrial 
+                applications. This capability not only reduces dependence on non-renewable resources but also lowers greenhouse gas emissions and improves air quality.</p>
+                <p>The adoption of solar energy plays a significant role in advancing sustainable development goals (SDGs), especially those related to affordable and 
+                    clean energy (SDG 7), climate action (SDG 13), and sustainable communities (SDG 11). By investing in solar energy infrastructure and technology, nations 
+                    can not only reduce their carbon footprint but also foster economic growth, create jobs, and enhance energy security. Furthermore, solar energy is particularly 
+                    valuable in regions with limited access to traditional power grids, offering an opportunity to bridge the energy access gap and improve living standards in remote 
+                    and underserved areas.</p>
+                
+    <!-- How Solar Energy Works Section -->
+    <section id="how-it-works" class="section-container">
+        <div class="max-width">
+            <h2 class="title">How Solar Energy Works</h2>
+            <p>Solar panels convert sunlight into electricity using photovoltaic cells. This process, known as the photovoltaic effect, captures solar energy and powers homes, businesses, and even entire cities.</p>
+            <p><b>1.Clean Energy Source:</b> Solar energy is renewable, meaning it doesn’t deplete natural resources or harm ecosystems as fossil fuels do. By harnessing sunlight, solar power generates electricity without 
+                emitting greenhouse gases, helping to mitigate climate change and reduce pollution.</p>
+                <p><b>2.Carbon Emission Reduction: </b>Switching to solar energy decreases reliance on fossil fuels, significantly reducing carbon dioxide (CO₂) and other pollutants. 
+                    This reduction is essential for meeting international climate targets, such as those outlined in the Paris Agreement.</p>
+            <h3>Types of Solar Systems</h3>
+            <ul>
+                <li>Residential Solar Systems: Rooftop panels for homes.</li>
+                <li>Commercial Solar Systems: Solar setups for businesses and institutions.</li>
+                <li>Utility-Scale Solar: Large solar farms that supply power to thousands of homes.</li>
+            </ul>
+            <a onclick="showSection('how-it-works')" class="cta-button">Explore Benefits</a>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="section-container">
+        <div class="max-width">
+            <h2 class="title">Benefits of Solar Energy</h2>
+            <p>Solar energy offers numerous environmental, economic, and social benefits, making it a key driver in sustainable development.</p>
+
+            <div class="about-content">
+                <div class="subpoint-container">
+                    <h3>Environmental Benefits</h3>
+                    <p>Reduces reliance on fossil fuels, cuts greenhouse gas emissions, and minimizes air and water pollution.</p>
+                </div>
+                <div class="subpoint-container">
+                    <h3>Economic Benefits</h3>
+                    <p>Lowers energy bills, creates jobs, and supports economic growth for a greener future.</p>
+                </div>
+                <div class="subpoint-container">
+                    <h3>Social Benefits</h3>
+                    <p>Improves quality of life by providing power to remote areas and empowering communities.</p>
+                </div>
+            </div>
+            <a onclick="showSection('benefits')" class="cta-button">Calculate Your Savings</a>
+        </div>
+    </section>
+
+    <!-- Solar Savings Calculator Section -->
+    <section id="calculator" class="section-container">
+        <div class="max-width">
+            <h2 class="title">Solar Savings Calculator</h2>
+            <p>Enter your monthly electricity bill to estimate your potential solar savings:</p>
+            <div id="calculator">
+                <input type="number" id="electricity-bill" placeholder="Monthly Bill ($)" required>
+                <button onclick="calculateSavings()">Calculate Savings</button>
+            </div>
+            <p id="savings-result"></p>
+            <a onclick="showSection('calculator')" class="cta-button">Back to Home</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p>© 2024 SolarEnergy. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Function to show specific section
+        
+            document.querySelectorAll('#hiw').forEach(section => 
+                {
+                    section.addEventListener('click', function(e) 
+                {
+                    a.preventDefault();
+                    const targetSection = document.querySelector(this.getAttribute('href'));
+                    window.scrollTo({
+                        top:targetSection.offsetTop -60,
+                        behavior:"smooth"
+                    });
+                })
+                }
+            )
+
+
+        // Solar Savings Calculator function
+        function calculateSavings() {
+            const bill = parseFloat(document.getElementById('electricity-bill').value);
+            if (isNaN(bill) || bill <= 0) {
+                document.getElementById('savings-result').textContent = "Please enter a valid monthly bill amount.";
+                return;
+            }
+            const savings = (bill * 0.2).toFixed(2); // Assuming 20% savings
+            document.getElementById('savings-result').textContent = `Estimated monthly savings with solar: $${savings}`;
+        }
+
+        // Sticky navbar effect
+        window.addEventListener("scroll", function() {
+            const navbar = document.querySelector(".navbar");
+            navbar.classList.toggle("sticky", window.scrollY > 0);
+        });
+    </script>
+</body>
+</html>
